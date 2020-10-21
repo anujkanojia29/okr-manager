@@ -1,0 +1,23 @@
+<aside class="sidebar">
+  <div class="sidebar__logo">
+    
+  </div>
+  <span class="sidebar__header">
+    Tags
+  </span>
+  <ul class="sidebar__lst">
+    <li
+      class="sidebar__item"
+      ng-repeat="item in ::$ctrl.objectiveTags">
+        <a
+          ui-sref="objective({ tag: item.value })"
+          ui-sref-active-eq="sidebar__link--active"
+          class="sidebar__link">
+          <i class="material-icons">
+            {{ ::item.icon }}
+          </i>
+          {{ ::item.label }}
+        </a>
+    </li>
+  </ul>
+</aside>

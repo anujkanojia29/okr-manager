@@ -1,0 +1,10 @@
+<div class="objective-card">
+    <div class="objective-detail" ng-repeat =  "objective in $ctrl.objectives | objectiveFilter: $ctrl.params track by objective.$id">
+        <label class = 'header-label'>{{$index + 1}} : {{objective.title}}
+            <i class="material-icons objective-delete" ng-click="$ctrl.deleteObjective(objective)">delete_forever</i>
+        </label>     
+        <div class="key-results" ng-repeat =  "keyresult in objective.keyresults track by $index">
+            <label class = 'key-label'>{{$index + 1}} : {{keyresult}}</label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="objective">
+  <form name="objectiveDetailForm" novalidate>
+    <div class="objective__box">
+      <h3 class="objective__sub-title">
+        New Objective
+      </h3>
+      <div class="objective__field">
+        <label>
+          Title 
+        </label>
+        <input
+          type="text"
+          name="name"
+          required="required"
+          ng-model-options="{
+            'updateOn': 'default blur',
+            'debounce': {
+              'default': 250,
+              'blur': 0
+            }
+          }"
+          ng-model="$ctrl.objective.title">
+      </div>
+      <div class="objective__field">
+          <label>
+            Tag
+          </label>
+          <select class="new-objective-select"
+            name = "tag"
+            ng-model="$ctrl.objective.tag" ng-options="tag.label for tag in $ctrl.tags">
+          </select>
+        </div>
+      <div class="objective__field">
+          <label>
+            Key Results 
+          </label>
+          <textarea name="comment" 
+          class = "new-objecjective-area"
+          placeholder="Enter comma seperated key results.."
+          required="required"
+            ng-model-options="{
+              'updateOn': 'default blur',
+              'debounce': {
+                'default': 250,
+                'blur': 0
+              }
+            }"
+            ng-model="$ctrl.objective.keyresults"
+            form="objectiveDetailForm">
+          </textarea>
+        </div>
+
+    <div class = "new-objective-footer">
+      <button
+        ng-disabled="objectiveDetailForm.$invalid"
+        ng-click="$ctrl.saveObjective();">
+        Create
+      </button>
+      <button
+        ng-disabled="objectiveDetailForm.$invalid"
+        ng-click="$ctrl.clearObjective();">
+        Clear
+      </button>
+    </div>
+  </form>
+</div>
